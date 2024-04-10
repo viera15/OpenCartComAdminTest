@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-def test_login_spravne_udaje():
+def test_login_spravne_udaje(setup_and_teardown):
     driver = webdriver.Firefox()
     driver.maximize_window()
     driver.get("https://demo.opencart.com/admin/")
@@ -23,4 +23,3 @@ def test_login_spravne_udaje():
 
 
     time.sleep(5)
-    driver.quit()
