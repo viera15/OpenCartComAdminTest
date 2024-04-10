@@ -1,10 +1,11 @@
 import pytest
 
 from pages.AdminPage import AdminPage
+from tests.BaseTest import BaseTest
 
 
-@pytest.mark.usefixtures("setup_and_teardown")
-class TestLogin:
+
+class TestLogin(BaseTest):
 
     def test_login_spravne_udaje(self):
         admin_page = AdminPage(self.driver)
