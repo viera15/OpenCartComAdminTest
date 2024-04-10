@@ -25,3 +25,8 @@ class AdminPage:
     def klik_na_login_tlacidlo(self):
         self.driver.find_element(By.XPATH, self.button_login_xpath).click()
         return DashboardPage(self.driver)
+
+    def prihlasenie_admina(self, admin_name, admin_passw):
+        self.vpisat_admin_meno(admin_name)
+        self.vpisat_admin_heslo(admin_passw)
+        return self.klik_na_login_tlacidlo()
