@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
 
+from pages.DashboardPage import DashboardPage
+
+
 class AdminPage:
 
     def __init__(self, driver):
@@ -21,3 +24,4 @@ class AdminPage:
 
     def klik_na_login_tlacidlo(self):
         self.driver.find_element(By.XPATH, self.button_login_xpath).click()
+        return DashboardPage(self.driver)
