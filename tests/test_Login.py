@@ -3,21 +3,22 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+from pages.AdminPage import AdminPage
+from pages.DashboardPage import DashboardPage
+
+
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestLogin:
 
     def test_login_spravne_udaje(self):
-        self.driver.find_element(By.ID, "input-username").send_keys("demo")
-        self.driver.find_element(By.ID, "input-password").send_keys("demo")
-        self.driver.find_element(By.XPATH, "//button[contains(text(), 'Login')]").click()
-
-
-        wait = WebDriverWait(self.driver, 35)
-        wait.until(expected_conditions.visibility_of_element_located((By.XPATH, "//div[@class='modal-dialog']")))
-        self.driver.find_element(By.XPATH, "//*[@id='modal-security']/div/div/div[1]/button").click()
-
+        admin_page = AdminPage(self.driver)
+        admin_page.vpisat_admin_meno("demo")
+        admin_page.vpisat_admin_heslo("demo")
+        admin_page.klik_na_login_tlacidlo()
+        dashboard_page = DashboardPage(self.driver)
+        dashboard_page.zatvorenie_modalneho_okna()
         ocakavany_text = "Logout"
-        assert self.driver.find_element(By.XPATH, "//header/div/ul/li[3]/a/span").text.__contains__(ocakavany_text)
+        assert dashboard_page.vratenie_textu_logout().__contains__(ocakavany_text)
 
 
 
