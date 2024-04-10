@@ -1,5 +1,3 @@
-import pytest
-
 from pages.AdminPage import AdminPage
 from tests.BaseTest import BaseTest
 
