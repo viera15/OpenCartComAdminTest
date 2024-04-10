@@ -2,10 +2,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-class DashboardPage:
+from pages.BasePage import BasePage
+
+
+class DashboardPage(BasePage):
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
         
     modal_window_xpath = "//div[@class='modal-dialog']"
     button_modal_window_xpath = "//*[@id='modal-security']/div/div/div[1]/button"

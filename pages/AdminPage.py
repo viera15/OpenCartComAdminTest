@@ -1,12 +1,13 @@
 from selenium.webdriver.common.by import By
 
+from pages.BasePage import BasePage
 from pages.DashboardPage import DashboardPage
 
 
-class AdminPage:
+class AdminPage(BasePage):
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
 
     admin_name_id = "input-username"
     admin_email_id = "input-password"
