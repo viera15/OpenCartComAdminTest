@@ -19,7 +19,7 @@ class DashboardPage(BasePage):
         wait.until(expected_conditions.visibility_of_element_located((By.XPATH, self.modal_window_xpath)))
 
     def klik_na_tlacidlo_modalneho_okna(self):
-        self.driver.find_element(By.XPATH, self.button_modal_window_xpath).click()
+        self.klik_na_element("button_modal_window_xpath", self.button_modal_window_xpath)
         
     def zatvorenie_modalneho_okna(self):
         self.cakanie_na_modalne_okno()

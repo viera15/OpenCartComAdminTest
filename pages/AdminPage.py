@@ -1,5 +1,3 @@
-from selenium.webdriver.common.by import By
-
 from pages.BasePage import BasePage
 from pages.DashboardPage import DashboardPage
 
@@ -14,17 +12,14 @@ class AdminPage(BasePage):
     button_login_xpath = "//button[contains(text(), 'Login')]"
 
     def vpisat_admin_meno(self, admin_name):
-        self.driver.find_element(By.ID, self.admin_name_id).click()
-        self.driver.find_element(By.ID, self.admin_name_id).clear()
-        self.driver.find_element(By.ID, self.admin_name_id).send_keys(admin_name)
+        self.vpisanie_textu_do_elementu(admin_name, "admin_name_id",self.admin_name_id)
 
     def vpisat_admin_heslo(self, admin_passw):
-        self.driver.find_element(By.ID, self.admin_email_id).click()
-        self.driver.find_element(By.ID, self.admin_email_id).clear()
-        self.driver.find_element(By.ID, self.admin_email_id).send_keys(admin_passw)
+        self.vpisanie_textu_do_elementu(admin_passw, "admin_email_id",self.admin_email_id)
+
 
     def klik_na_login_tlacidlo(self):
-        self.driver.find_element(By.XPATH, self.button_login_xpath).click()
+        self.klik_na_element("button_login_xpath", self.button_login_xpath)
         return DashboardPage(self.driver)
 
     def prihlasenie_admina(self, admin_name, admin_passw):

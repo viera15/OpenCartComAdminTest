@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage:
@@ -6,8 +8,21 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
-    def get_element(self, locator_name, locator_value):
-        # všeobecná funkcia, ktorá zistí z názvu premennej aký typ lokátoru obsahuje a vráti element podľa daného lokátoru
+    def vpisanie_textu_do_elementu(self, text, locator_name, locator_value):
+        # všeobecná funkcia pre vpísanie textu do elementu
+        element = self.vezmi_element(locator_name, locator_value)
+        element.click()
+        element.clear()
+        element.send_keys(text)
+
+    def klik_na_element(self, locator_name, locator_value):
+        # všeobecná funkcia pre kliknutie na element
+        element = self.vezmi_element(locator_name, locator_value)
+        element.click()
+
+    def vezmi_element(self, locator_name, locator_value):
+        """ všeobecná funkcia, ktorá zistí z názvu premennej aký typ lokátoru obsahuje a vráti element podľa daného
+        lokátoru """
         element = None
         if locator_name.endswith("_id"):
             element = self.driver.find_element(By.ID, locator_value)
