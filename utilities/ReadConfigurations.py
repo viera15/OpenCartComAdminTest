@@ -2,5 +2,6 @@ from configparser import ConfigParser
 
 def read_configuration(category, key):
     config = ConfigParser()
-    config.read("config.ini")
+    config.read('../configurations/config.ini')
     return config.get(category, key)
+
