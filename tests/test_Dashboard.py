@@ -10,6 +10,13 @@ from tests.BaseTest import BaseTest
 
 class TestDashboard(BaseTest):
 
+#--------------------HEAD------------------------------------------------------------------
+
+    def test_overenie_title_dashboard_stranky(self):
+        self.login_spravne_udaje()
+        ocakavany_title = "Dashboard"
+        assert self.driver.title.__eq__(ocakavany_title)
+
 #---------------------HEADER----------------------------------------------------------------
 
     def test_logout_z_admin_prostredia(self):
