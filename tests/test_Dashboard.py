@@ -23,7 +23,6 @@ class TestDashboard(BaseTest):
         dashboard_page = self.login_spravne_udaje()
         assert dashboard_page.zobrazovanie_loga()
 
-    #TODO overenie dropdownu
     def test_overenie_textu_dropdown_menu_profilu(self):
         dashboard_page = self.login_spravne_udaje()
         ocakavany_text_dropdown_profilu = "demo demo"

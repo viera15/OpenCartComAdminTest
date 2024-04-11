@@ -27,9 +27,8 @@ class DashboardPage(BasePage):
         self.cakanie_na_modalne_okno()
         return self.klik_na_tlacidlo_modalneho_okna()
 
-    #TODO zjednodušiť a použiť metódu z BasePage
     def vratenie_textu_logout(self):
-        return self.driver.find_element(By.XPATH, self.logout_option_xpath).text
+        return self.ziskanie_textu_elementu("logout_option_xpath", self.logout_option_xpath)
 
     def klik_na_logout(self):
         self.klik_na_element("logout_option_xpath", self.logout_option_xpath)
