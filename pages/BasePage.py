@@ -22,6 +22,11 @@ class BasePage:
         element = self.vezmi_element(locator_name, locator_value)
         return element.text
 
+    def kontrola_zobrazovania_elementu(self, locator_name, locator_value):
+        # všeobecná funkcia, ktorá zistí, či je element zobrazený
+        element = self.vezmi_element(locator_name, locator_value)
+        return element.is_displayed()
+
     def vezmi_element(self, locator_name, locator_value):
         """ všeobecná funkcia, ktorá zistí z názvu premennej aký typ lokátoru obsahuje a vráti element podľa daného
         lokátoru """

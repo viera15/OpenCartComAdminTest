@@ -19,6 +19,11 @@ class TestDashboard(BaseTest):
 
 #---------------------HEADER----------------------------------------------------------------
 
+    def test_overenie_loga(self):
+        dashboard_page = self.login_spravne_udaje()
+        assert dashboard_page.zobrazovanie_loga()
+
+
     def test_logout_z_admin_prostredia(self):
         dashboard_page = self.login_spravne_udaje()
         dashboard_page.klik_na_logout()

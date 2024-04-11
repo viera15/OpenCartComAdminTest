@@ -13,6 +13,7 @@ class DashboardPage(BasePage):
     modal_window_xpath = "//div[@class='modal-dialog']"
     button_modal_window_xpath = "//*[@id='modal-security']/div/div/div[1]/button"
     logout_option_xpath = "//header/div/ul/li[3]/a/span"
+    logo_cesta_xpath = "//img[@title= 'OpenCart']"
 
     def cakanie_na_modalne_okno(self):
         wait = WebDriverWait(self.driver, 35)
@@ -30,3 +31,9 @@ class DashboardPage(BasePage):
 
     def klik_na_logout(self):
         self.klik_na_element("logout_option_xpath", self.logout_option_xpath)
+
+    def zobrazovanie_loga(self):
+        return self.kontrola_zobrazovania_elementu("logo_cesta_xpath", self.logo_cesta_xpath)
+
+
+
