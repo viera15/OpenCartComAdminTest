@@ -24,6 +24,8 @@ class TestLogin(BaseTest):
         ocakavane_upozornenie = "No match for Username and/or Password."
         assert admin_page.ziskanie_textu_upozornenia().__contains__(ocakavane_upozornenie)
 
-
+    def test_overenie_title_admin_stranky(self):
+        ocakavany_title = "Administration"
+        assert self.driver.title.__eq__(ocakavany_title)
 
 
