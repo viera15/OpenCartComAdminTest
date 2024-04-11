@@ -19,6 +19,12 @@ class TestLogin(BaseTest):
         admin_page.prihlasenie_admina("abcd", "efgh")
         ocakavane_upozornenie = "No match for Username and/or Password."
         assert admin_page.ziskanie_textu_upozornenia().__contains__(ocakavane_upozornenie)
+        
+    def test_login_nevyplnene_udaje(self):
+        admin_page = AdminPage(self.driver)
+        admin_page.prihlasenie_admina("", "")
+        ocakavane_upozornenie = "No match for Username and/or Password."
+        assert admin_page.ziskanie_textu_upozornenia().__contains__(ocakavane_upozornenie)
 
 
 
