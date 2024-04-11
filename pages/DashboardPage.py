@@ -27,3 +27,6 @@ class DashboardPage(BasePage):
     
     def vratenie_textu_logout(self):
         return self.driver.find_element(By.XPATH, self.logout_option_xpath).text
+
+    def klik_na_logout(self):
+        self.klik_na_element("logout_option_xpath", self.logout_option_xpath)
