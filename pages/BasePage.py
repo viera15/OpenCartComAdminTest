@@ -18,6 +18,10 @@ class BasePage:
         element = self.vezmi_element(locator_name, locator_value)
         element.click()
 
+    def ziskanie_textu_elementu(self, locator_name, locator_value):
+        element = self.vezmi_element(locator_name, locator_value)
+        return element.text
+
     def vezmi_element(self, locator_name, locator_value):
         """ všeobecná funkcia, ktorá zistí z názvu premennej aký typ lokátoru obsahuje a vráti element podľa daného
         lokátoru """

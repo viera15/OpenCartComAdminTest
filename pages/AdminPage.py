@@ -1,3 +1,5 @@
+from selenium.webdriver.common.by import By
+
 from pages.BasePage import BasePage
 from pages.DashboardPage import DashboardPage
 
@@ -10,6 +12,7 @@ class AdminPage(BasePage):
     admin_name_id = "input-username"
     admin_email_id = "input-password"
     button_login_xpath = "//button[contains(text(), 'Login')]"
+    upozornenie_xpath = "//div[@id='alert']/div"
 
     def vpisat_admin_meno(self, admin_name):
         self.vpisanie_textu_do_elementu(admin_name, "admin_name_id",self.admin_name_id)
@@ -26,3 +29,6 @@ class AdminPage(BasePage):
         self.vpisat_admin_meno(admin_name)
         self.vpisat_admin_heslo(admin_passw)
         return self.klik_na_login_tlacidlo()
+
+    def ziskanie_textu_upozornenia(self):
+        return self.ziskanie_textu_elementu("upozornenie_xpath", self.upozornenie_xpath)

@@ -1,3 +1,5 @@
+from selenium.webdriver.common.by import By
+
 from pages.AdminPage import AdminPage
 from tests.BaseTest import BaseTest
 
@@ -12,7 +14,11 @@ class TestLogin(BaseTest):
         ocakavany_text = "Logout"
         assert dashboard_page.vratenie_textu_logout().__contains__(ocakavany_text)
 
-
+    def test_login_nespravne_udaje(self):
+        admin_page = AdminPage(self.driver)
+        admin_page.prihlasenie_admina("abcd", "efgh")
+        ocakavane_upozornenie = "No match for Username and/or Password."
+        assert admin_page.ziskanie_textu_upozornenia().__contains__(ocakavane_upozornenie)
 
 
 
