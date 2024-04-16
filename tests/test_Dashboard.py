@@ -28,6 +28,12 @@ class TestDashboard(BaseTest):
         ocakavany_text_dropdown_profilu = "demo demo"
         assert dashboard_page.vratenie_textu_dropdown_profilu().__contains__(ocakavany_text_dropdown_profilu)
 
+    def test_kliknutie_na_your_profile_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        profile_page = dashboard_page.klik_na_polozku_your_profile_profil_dropdown_menu()
+        ocakavany_nazov_card_header = "Edit Your Profile"
+        assert profile_page.vratenie_textu_card_header().__contains__(ocakavany_nazov_card_header)
+
 
 
 

@@ -4,6 +4,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
 from pages.BasePage import BasePage
+from pages.ProfilePage import ProfilePage
 
 
 class DashboardPage(BasePage):
@@ -18,6 +19,8 @@ class DashboardPage(BasePage):
     logo_cesta_xpath = "//img[@title= 'OpenCart']"
     profil_dropdown_xpath = "//span[@class= 'd-none d-md-inline d-lg-inline']"
     list_profil_options_xpath = "//li[@id= 'header-profile']//a[@class= 'dropdown-item']"
+    your_profile_option_link_text = "Your Profile"
+    your_store_option_link_text = "Your Store"
 
     def cakanie_na_modalne_okno(self):
         wait = WebDriverWait(self.driver, 35)
@@ -44,4 +47,14 @@ class DashboardPage(BasePage):
 
     def klik_profil_dropdown_menu(self):
         self.klik_na_element("profil_dropdown_xpath", self.profil_dropdown_xpath)
+
+# --------------------------------------------------------------------------------------------
+    def klik_na_polozku_your_profile_profil_dropdown_menu(self):
+        self.klik_profil_dropdown_menu()
+        self.klik_na_element("your_profile_option_link_text", self.your_profile_option_link_text)
+        return ProfilePage(self.driver)
+
+   # def klik_na_polozku_your_store_profil_dropdown_menu(self):
+        #self.klik_na_element("your_store_option_xpath", self.your_store_option_xpath)
+
 
