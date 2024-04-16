@@ -4,6 +4,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
 from pages.BasePage import BasePage
+from pages.HomePage import HomePage
 from pages.ProfilePage import ProfilePage
 
 
@@ -54,7 +55,10 @@ class DashboardPage(BasePage):
         self.klik_na_element("your_profile_option_link_text", self.your_profile_option_link_text)
         return ProfilePage(self.driver)
 
-   # def klik_na_polozku_your_store_profil_dropdown_menu(self):
-        #self.klik_na_element("your_store_option_xpath", self.your_store_option_xpath)
+    def klik_na_polozku_your_store_profil_dropdown_menu(self):
+        self.klik_profil_dropdown_menu()
+        self.klik_na_element("your_store_option_link_text", self.your_store_option_link_text)
+        return HomePage(self.driver)
+
 
 
