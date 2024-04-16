@@ -19,6 +19,7 @@ class BasePage:
         element.click()
 
     def ziskanie_textu_elementu(self, locator_name, locator_value):
+        # všeobecná funkcia, ktorá získa text z elementu
         element = self.vezmi_element(locator_name, locator_value)
         return element.text
 
@@ -44,3 +45,4 @@ class BasePage:
         elif locator_name.endswith("_css"):
             element = self.driver.find_element(By.CSS_SELECTOR, locator_value)
         return element
+
