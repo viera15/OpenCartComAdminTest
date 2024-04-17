@@ -60,18 +60,13 @@ class DashboardPage(BasePage):
         self.klik_na_element("your_store_option_link_text", self.your_store_option_link_text)
         return HomeStorePage(self.driver)
 
-    def klik_na_polozku_opencart_homepage_profil_dropdown_menu(self):
+    def klik_na_polozku_opencart_homepage_profil_dropdown_menu(self, nazov_title):
         self.klik_profil_dropdown_menu()
         self.klik_na_element("opencart_homepage_option_link_text",self.opencart_homepage_option_link_text)
+        return self.prepnutie_do_okna_podla_title(nazov_title)
 
 
-    def prepnutie_do_opencart_homepage(self, title_name):
-        windows = self.driver.window_handles
 
-        for window in windows:
-            if self.driver.title == title_name:
-                self.driver.switch_to.window(window)
-        return self.driver.title
 
 
 

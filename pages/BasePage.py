@@ -28,6 +28,14 @@ class BasePage:
         element = self.vezmi_element(locator_name, locator_value)
         return element.is_displayed()
 
+    def prepnutie_do_okna_podla_title(self, title_name):
+        windows = self.driver.window_handles
+
+        for window in windows:
+            if self.driver.title == title_name:
+                self.driver.switch_to.window(window)
+        return self.driver.title
+
     def vezmi_element(self, locator_name, locator_value):
         """ všeobecná funkcia, ktorá zistí z názvu premennej aký typ lokátoru obsahuje a vráti element podľa daného
         lokátoru """
