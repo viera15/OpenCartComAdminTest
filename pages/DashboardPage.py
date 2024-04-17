@@ -22,6 +22,7 @@ class DashboardPage(BasePage):
     your_profile_option_link_text = "Your Profile"
     your_store_option_link_text = "Your Store"
     opencart_homepage_option_link_text = "OpenCart Homepage"
+    documentation_option_link_text = "Documentation"
 
     def cakanie_na_modalne_okno(self):
         wait = WebDriverWait(self.driver, 35)
@@ -64,6 +65,13 @@ class DashboardPage(BasePage):
         self.klik_profil_dropdown_menu()
         self.klik_na_element("opencart_homepage_option_link_text",self.opencart_homepage_option_link_text)
         return self.prepnutie_do_okna_podla_title(nazov_title)
+
+    def klik_na_položku_documentation_profil_dropdown_menu(self, nazov_title):
+        self.klik_profil_dropdown_menu()
+        self.klik_na_element("documentation_option_link_text", self.documentation_option_link_text)
+        return self.prepnutie_do_okna_podla_title(nazov_title)
+
+
 
 
 

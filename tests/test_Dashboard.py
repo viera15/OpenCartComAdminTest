@@ -44,7 +44,10 @@ class TestDashboard(BaseTest):
         ocakavany_title_page = "OpenCart - Open Source Shopping Cart Solution"
         assert dashboard_page.klik_na_polozku_opencart_homepage_profil_dropdown_menu(ocakavany_title_page)
 
-
+    def test_kliknutie_na_documentation_profil_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        ocakavany_title_page_text = "OpenCart Documentation"
+        assert dashboard_page.klik_na_položku_documentation_profil_dropdown_menu(ocakavany_title_page_text)
 
 
 
