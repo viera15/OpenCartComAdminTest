@@ -36,9 +36,19 @@ class TestDashboard(BaseTest):
 
     def test_kliknutie_na_your_store_profil_link(self):
         dashboard_page = self.login_spravne_udaje()
-        home_page = dashboard_page.klik_na_polozku_your_store_profil_dropdown_menu()
+        home_store_page = dashboard_page.klik_na_polozku_your_store_profil_dropdown_menu()
         ocakavany_nazov_url = "https://demo.opencart.com/"
-        assert home_page.vratenie_url_stranky_your_store().__contains__(ocakavany_nazov_url)
+        assert home_store_page.vratenie_url_stranky_your_store().__contains__(ocakavany_nazov_url)
+    def test_kliknutie_na_opencart_homepage_profil_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        dashboard_page.klik_na_polozku_opencart_homepage_profil_dropdown_menu()
+        ocakavany_title_page = "OpenCart - Open Source Shopping Cart Solution"
+        assert dashboard_page.prepnutie_do_opencart_homepage(ocakavany_title_page)
+
+
+
+
+
 
 
 

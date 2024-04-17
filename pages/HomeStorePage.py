@@ -7,7 +7,7 @@ from pages.BasePage import BasePage
 from pages.ProfilePage import ProfilePage
 
 
-class HomePage(BasePage):
+class HomeStorePage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)

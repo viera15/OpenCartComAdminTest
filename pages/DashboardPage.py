@@ -1,10 +1,9 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
 from pages.BasePage import BasePage
-from pages.HomePage import HomePage
+from pages.HomeStorePage import HomeStorePage
 from pages.ProfilePage import ProfilePage
 
 
@@ -22,6 +21,7 @@ class DashboardPage(BasePage):
     list_profil_options_xpath = "//li[@id= 'header-profile']//a[@class= 'dropdown-item']"
     your_profile_option_link_text = "Your Profile"
     your_store_option_link_text = "Your Store"
+    opencart_homepage_option_link_text = "OpenCart Homepage"
 
     def cakanie_na_modalne_okno(self):
         wait = WebDriverWait(self.driver, 35)
@@ -58,7 +58,23 @@ class DashboardPage(BasePage):
     def klik_na_polozku_your_store_profil_dropdown_menu(self):
         self.klik_profil_dropdown_menu()
         self.klik_na_element("your_store_option_link_text", self.your_store_option_link_text)
-        return HomePage(self.driver)
+        return HomeStorePage(self.driver)
+
+    def klik_na_polozku_opencart_homepage_profil_dropdown_menu(self):
+        self.klik_profil_dropdown_menu()
+        self.klik_na_element("opencart_homepage_option_link_text",self.opencart_homepage_option_link_text)
+
+
+    def prepnutie_do_opencart_homepage(self, title_name):
+        windows = self.driver.window_handles
+
+        for window in windows:
+            if self.driver.title == title_name:
+                self.driver.switch_to.window(window)
+        return self.driver.title
+
+
+
 
 
 
