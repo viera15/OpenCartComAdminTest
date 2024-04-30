@@ -49,16 +49,29 @@ class TestDashboard(BaseTest):
         ocakavany_title_page_text = "OpenCart Documentation"
         assert dashboard_page.klik_na_položku_documentation_profil_dropdown_menu(ocakavany_title_page_text)
 
-
-
-
-
+    #TODO občas pozrieť, či stránka existuje
+    def test_kliknutie_support_forum_profil_link(self):
+        # stránka forum.opencart.com asi neexistuje
+        pass
 
     def test_logout_z_admin_prostredia(self):
         dashboard_page = self.login_spravne_udaje()
         dashboard_page.klik_na_logout()
 
 #---------------------NAV-------------------------------------------------------------------
+
+    def test_kliknutie_na_dashboard_navigation_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        ocakavany_nadpis_dashboard = "Dashboard"
+        assert dashboard_page.overenie_polozky_navigacneho_menu_dashboard().__eq__(ocakavany_nadpis_dashboard)
+
+
+
+
+
+
+
+#--------------------CONTENT---------------------------------------------------------------
 
 
 #--------------------FOOTER-----------------------------------------------------------------
