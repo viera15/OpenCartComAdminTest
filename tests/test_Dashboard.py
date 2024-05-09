@@ -82,6 +82,19 @@ class TestDashboard(BaseTest):
         ocakavany_nadpis_products = "Products"
         assert product_page.vratenie_textu_z_hlavicky_obsahovej_casti_products().__eq__(ocakavany_nadpis_products)
 
+    def test_kliknutie_catalog_subscription_plans_navigation_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        subscription_page = dashboard_page.klik_na_polozku_navigacneho_menu_subscriptions_plans()
+        ocakavany_nadpis_subscription = "Subscription Plans"
+        assert subscription_page.vratenie_textu_z_hlavicky_obsahovej_casti_subscription_plan().__eq__(
+            ocakavany_nadpis_subscription)
+
+
+
+
+
+
+
 #--------------------CONTENT---------------------------------------------------------------
 
 
