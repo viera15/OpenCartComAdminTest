@@ -72,30 +72,38 @@ class TestDashboard(BaseTest):
 
     def test_kliknutie_catalog_categories_navigation_link(self):
         dashboard_page = self.login_spravne_udaje()
-        catalog_page = dashboard_page.klik_na_polozku_navigacneho_menu_categories()
+        catalog_page = dashboard_page.klik_na_polozku_navigacneho_menu_catalog_categories()
         ocakavany_nadpis_categories = "Categories"
         assert catalog_page.vratenie_textu_z_hlavicky_obsahovej_casti_categories().__eq__(ocakavany_nadpis_categories)
 
     def test_kliknutie_catalog_products_navigation_link(self):
         dashboard_page = self.login_spravne_udaje()
-        product_page = dashboard_page.klik_na_polozku_navigacneho_menu_products()
+        product_page = dashboard_page.klik_na_polozku_navigacneho_menu_catalog_products()
         ocakavany_nadpis_products = "Products"
         assert product_page.vratenie_textu_z_hlavicky_obsahovej_casti_products().__eq__(ocakavany_nadpis_products)
 
     def test_kliknutie_catalog_subscription_plans_navigation_link(self):
         dashboard_page = self.login_spravne_udaje()
-        subscription_page = dashboard_page.klik_na_polozku_navigacneho_menu_subscriptions_plans()
+        subscription_page = dashboard_page.klik_na_polozku_navigacneho_menu_catalog_subscriptions_plans()
         ocakavany_nadpis_subscription = "Subscription Plans"
         assert subscription_page.vratenie_textu_z_hlavicky_obsahovej_casti_subscription_plan().__eq__(
             ocakavany_nadpis_subscription)
 
     def test_kliknutie_catalog_filters_navigation_link(self):
         dashboard_page = self.login_spravne_udaje()
-        filter_page = dashboard_page.klik_na_polozku_navigacneho_menu_filters()
+        filter_page = dashboard_page.klik_na_polozku_navigacneho_menu_catalog_filters()
         ocakavany_nadpis_filters = "Filters"
         assert filter_page.vratenie_textu_z_hlavicky_obsahovej_casti_filters().__eq__(ocakavany_nadpis_filters)
 
+    #TODO porovnanie položiek attributes menu
+    def test_kliknutie_catalog_attributes_navigation_link(self):
+        pass
 
+    def test_kliknutie_catalog_attributes_attributes_navigation_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        attribute_page = dashboard_page.klik_na_polozku_navigacneho_menu_attributes_attributes()
+        ocakavany_nadpis_attributes = "Attributes"
+        assert attribute_page.vratenie_textu_z_hlavicky_obsahovej_casti_attributes().__eq__(ocakavany_nadpis_attributes)
 
 
 

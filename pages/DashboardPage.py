@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+from pages.AttributePage import AttributePage
 from pages.BasePage import BasePage
 from pages.CatalogPage import CatalogPage
 from pages.FilterPage import FilterPage
@@ -36,6 +37,8 @@ class DashboardPage(BasePage):
     products_nav_menu_option_xpath = "//a[normalize-space()='Products']"
     subscriptions_plans_nav_menu_option_xpath = "//a[normalize-space()='Subscription Plans']"
     filters_nav_menu_option_xpath = "//a[normalize-space()='Filters']"
+    attributes_nav_menu_option_xpath = "//a[@class='parent collapsed'][normalize-space()='Attributes']"
+    attributes_attributes_nav_menu_option_xpath = "//ul[@id='collapse-1-4']//a[contains(text(),'Attributes')]"
 
 
 #---------------modálne okno-----------------------------------------------------------------------------
@@ -109,24 +112,25 @@ class DashboardPage(BasePage):
     def klik_na_polozku_navigacneho_menu_catalog(self):
         self.klik_na_element("catalog_nav_menu_option_xpath", self.catalog_nav_menu_option_xpath)
 
+    #TODO overenie zoznamu položiek Catalog
 
 #------------Catalog - Categories-------------------------------------------
 
-    def klik_na_polozku_navigacneho_menu_categories(self):
+    def klik_na_polozku_navigacneho_menu_catalog_categories(self):
         self.klik_na_polozku_navigacneho_menu_catalog()
         self.klik_na_element("categories_nav_menu_option_link_text", self.categories_nav_menu_option_link_text)
         return CatalogPage(self.driver)
 
 #-------------Catalog - Products-----------------------------------------------------
 
-    def klik_na_polozku_navigacneho_menu_products(self):
+    def klik_na_polozku_navigacneho_menu_catalog_products(self):
         self.klik_na_polozku_navigacneho_menu_catalog()
         self.klik_na_element("products_nav_menu_option_xpath", self.products_nav_menu_option_xpath)
         return ProductPage(self.driver)
 
 #-----------Catalog - Subscriptions Plans----------------------------------------------
 
-    def klik_na_polozku_navigacneho_menu_subscriptions_plans(self):
+    def klik_na_polozku_navigacneho_menu_catalog_subscriptions_plans(self):
         self.klik_na_polozku_navigacneho_menu_catalog()
         self.klik_na_element("subscriptions_plans_nav_menu_option_xpath",
             self.subscriptions_plans_nav_menu_option_xpath)
@@ -134,14 +138,25 @@ class DashboardPage(BasePage):
 
 #------------Catalog - Filters---------------------------------------------------------
 
-    def klik_na_polozku_navigacneho_menu_filters(self):
+    def klik_na_polozku_navigacneho_menu_catalog_filters(self):
         self.klik_na_polozku_navigacneho_menu_catalog()
         self.klik_na_element("filters_nav_menu_option_xpath", self.filters_nav_menu_option_xpath)
         return FilterPage(self.driver)
 
 
+#---------------Catalog - Attributes ------------------------------------------------------
 
+    def klik_na_polozku_navigacneho_menu_catalog_attributtes(self):
+        self.klik_na_polozku_navigacneho_menu_catalog()
+        self.klik_na_element("attributes_nav_menu_option_xpath", self.attributes_nav_menu_option_xpath)
 
+    #TODO overenie zoznamu položiek Attributes
+
+    def klik_na_polozku_navigacneho_menu_attributes_attributes(self):
+        self.klik_na_polozku_navigacneho_menu_catalog_attributtes()
+        self.klik_na_element("attributes_attributes_nav_menu_option_xpath",
+                self.attributes_attributes_nav_menu_option_xpath)
+        return AttributePage(self.driver)
 
 
 
