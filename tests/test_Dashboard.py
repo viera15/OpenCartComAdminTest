@@ -105,6 +105,14 @@ class TestDashboard(BaseTest):
         ocakavany_nadpis_attributes = "Attributes"
         assert attribute_page.vratenie_textu_z_hlavicky_obsahovej_casti_attributes().__eq__(ocakavany_nadpis_attributes)
 
+    def test_kliknutie_catalog_attributes_attribute_groups_navigation_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        attribute_group_page = dashboard_page.klik_na_polozku_navigacneho_menu_attributes_attribute_groups()
+        ocakavany_nadpis_attribute_grops = "Attribute Groups"
+        assert attribute_group_page.vratenie_textu_z_hlavicky_obsahovej_casti_attribute_groups().__eq__(
+            ocakavany_nadpis_attribute_grops)
+
+
 
 
 #--------------------CONTENT---------------------------------------------------------------

@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+from pages.AttributeGroupPage import AttributeGroupPage
 from pages.AttributePage import AttributePage
 from pages.BasePage import BasePage
 from pages.CatalogPage import CatalogPage
@@ -39,6 +40,7 @@ class DashboardPage(BasePage):
     filters_nav_menu_option_xpath = "//a[normalize-space()='Filters']"
     attributes_nav_menu_option_xpath = "//a[@class='parent collapsed'][normalize-space()='Attributes']"
     attributes_attributes_nav_menu_option_xpath = "//ul[@id='collapse-1-4']//a[contains(text(),'Attributes')]"
+    attributes_attribute_groups_nav_menu_option_xpath = "//a[normalize-space()='Attribute Groups']"
 
 
 #---------------modálne okno-----------------------------------------------------------------------------
@@ -158,7 +160,11 @@ class DashboardPage(BasePage):
                 self.attributes_attributes_nav_menu_option_xpath)
         return AttributePage(self.driver)
 
-
+    def klik_na_polozku_navigacneho_menu_attributes_attribute_groups(self):
+        self.klik_na_polozku_navigacneho_menu_catalog_attributtes()
+        self.klik_na_element("attributes_attribute_groups_nav_menu_option_xpath",
+                self.attributes_attribute_groups_nav_menu_option_xpath)
+        return AttributeGroupPage(self.driver)
 
 
 
