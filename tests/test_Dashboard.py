@@ -89,7 +89,11 @@ class TestDashboard(BaseTest):
         assert subscription_page.vratenie_textu_z_hlavicky_obsahovej_casti_subscription_plan().__eq__(
             ocakavany_nadpis_subscription)
 
-
+    def test_kliknutie_catalog_filters_navigation_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        filter_page = dashboard_page.klik_na_polozku_navigacneho_menu_filters()
+        ocakavany_nadpis_filters = "Filters"
+        assert filter_page.vratenie_textu_z_hlavicky_obsahovej_casti_filters().__eq__(ocakavany_nadpis_filters)
 
 
 

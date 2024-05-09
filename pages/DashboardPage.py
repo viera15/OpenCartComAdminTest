@@ -4,6 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from pages.BasePage import BasePage
 from pages.CatalogPage import CatalogPage
+from pages.FilterPage import FilterPage
 from pages.HomeStorePage import HomeStorePage
 from pages.ProductPage import ProductPage
 from pages.ProfilePage import ProfilePage
@@ -34,6 +35,7 @@ class DashboardPage(BasePage):
     categories_nav_menu_option_link_text = "Categories"
     products_nav_menu_option_xpath = "//a[normalize-space()='Products']"
     subscriptions_plans_nav_menu_option_xpath = "//a[normalize-space()='Subscription Plans']"
+    filters_nav_menu_option_xpath = "//a[normalize-space()='Filters']"
 
 
 #---------------modálne okno-----------------------------------------------------------------------------
@@ -129,6 +131,21 @@ class DashboardPage(BasePage):
         self.klik_na_element("subscriptions_plans_nav_menu_option_xpath",
             self.subscriptions_plans_nav_menu_option_xpath)
         return SubscriptionPage(self.driver)
+
+#------------Catalog - Filters---------------------------------------------------------
+
+    def klik_na_polozku_navigacneho_menu_filters(self):
+        self.klik_na_polozku_navigacneho_menu_catalog()
+        self.klik_na_element("filters_nav_menu_option_xpath", self.filters_nav_menu_option_xpath)
+        return FilterPage(self.driver)
+
+
+
+
+
+
+
+
 
 
 
