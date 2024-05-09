@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from pages.BasePage import BasePage
+from pages.CatalogPage import CatalogPage
 from pages.HomeStorePage import HomeStorePage
 from pages.ProfilePage import ProfilePage
 
@@ -26,6 +27,10 @@ class DashboardPage(BasePage):
     navigation_menu_xpath = "//nav[@id= 'column-left']/ul/li"
     dashboard_nav_menu_option_xpath = "//li[@id= 'menu-dashboard']//a[contains(text(), 'Dashboard')]"
     dasboard_content_header_xpath = "//li[@class='breadcrumb-item']//a[contains(text(),'Dashboard')]"
+    catalog_nav_menu_option_xpath = "//a[normalize-space()='Catalog']"
+    #catalog_options_nav_menu_xpath = "//li[@id= 'menu-catalog']//a"
+    categories_nav_menu_option_link_text = "Categories"
+
 
 #---------------modálne okno-----------------------------------------------------------------------------
     def cakanie_na_modalne_okno(self):
@@ -80,6 +85,7 @@ class DashboardPage(BasePage):
 
 #----------------------navigation menu --------------------------------------------------------------------------------
 
+#-----------------Dashboard--------------------------------------
     def klik_na_polozku_navigacneho_menu_dashboard(self):
         self.klik_na_element("dashboard_nav_menu_option_xpath", self.dashboard_nav_menu_option_xpath)
 
@@ -92,8 +98,18 @@ class DashboardPage(BasePage):
         self.klik_na_polozku_navigacneho_menu_dashboard()
         return self.vratenie_textu_z_hlavicky_obsahovej_casti_dashboard()
 
+#-----------------Catalog--------------------------------------------------
+
+    def klik_na_polozku_navigacneho_menu_catalog(self):
+        self.klik_na_element("catalog_nav_menu_option_xpath", self.catalog_nav_menu_option_xpath)
 
 
+#------------Catalog - Categories-------------------------------------------
+
+    def klik_na_polozku_navigacneho_menu_categories(self):
+        self.klik_na_polozku_navigacneho_menu_catalog()
+        self.klik_na_element("categories_nav_menu_option_link_text", self.categories_nav_menu_option_link_text)
+        return CatalogPage(self.driver)
 
 
 

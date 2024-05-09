@@ -3,6 +3,7 @@ import time
 from selenium.webdriver.common.by import By
 
 from pages.AdminPage import AdminPage
+from pages.CatalogPage import CatalogPage
 from pages.DashboardPage import DashboardPage
 from tests.BaseTest import BaseTest
 
@@ -65,11 +66,15 @@ class TestDashboard(BaseTest):
         ocakavany_nadpis_dashboard = "Dashboard"
         assert dashboard_page.overenie_polozky_navigacneho_menu_dashboard().__eq__(ocakavany_nadpis_dashboard)
 
+    #TODO porovnanie zoznamu položiek Catalog s očakávaným zoznamom položiek
+    def test_kliknutie_catalog_navigation_link(self):
+        pass
 
-
-
-
-
+    def test_kliknutie_catalog_categories_navigation_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        catalog_page = dashboard_page.klik_na_polozku_navigacneho_menu_categories()
+        ocakavany_nadpis_categories = "Categories"
+        assert catalog_page.vratenie_textu_z_hlavicky_obsahovej_casti_categories().__eq__(ocakavany_nadpis_categories)
 
 #--------------------CONTENT---------------------------------------------------------------
 
