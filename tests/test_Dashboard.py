@@ -76,6 +76,12 @@ class TestDashboard(BaseTest):
         ocakavany_nadpis_categories = "Categories"
         assert catalog_page.vratenie_textu_z_hlavicky_obsahovej_casti_categories().__eq__(ocakavany_nadpis_categories)
 
+    def test_kliknutie_catalog_products_navigation_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        product_page = dashboard_page.klik_na_polozku_navigacneho_menu_products()
+        ocakavany_nadpis_products = "Products"
+        assert product_page.vratenie_textu_z_hlavicky_obsahovej_casti_products().__eq__(ocakavany_nadpis_products)
+
 #--------------------CONTENT---------------------------------------------------------------
 
 
