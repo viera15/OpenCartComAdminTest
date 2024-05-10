@@ -112,6 +112,14 @@ class TestDashboard(BaseTest):
         assert attribute_group_page.vratenie_textu_z_hlavicky_obsahovej_casti_attribute_groups().__eq__(
             ocakavany_nadpis_attribute_grops)
 
+    def test_kliknutie_catalog_options_navigation_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        option_page = dashboard_page.klik_na_polozku_navigacneho_menu_options()
+        ocakavany_nadpis_option = "Options"
+        assert option_page.vratenie_textu_z_hlavicky_obsahovej_casti_options().__eq__(ocakavany_nadpis_option)
+
+
+
 
 
 

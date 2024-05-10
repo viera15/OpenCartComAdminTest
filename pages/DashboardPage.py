@@ -8,6 +8,7 @@ from pages.BasePage import BasePage
 from pages.CatalogPage import CatalogPage
 from pages.FilterPage import FilterPage
 from pages.HomeStorePage import HomeStorePage
+from pages.OptionPage import OptionPage
 from pages.ProductPage import ProductPage
 from pages.ProfilePage import ProfilePage
 from pages.SubscriptionPage import SubscriptionPage
@@ -41,6 +42,7 @@ class DashboardPage(BasePage):
     attributes_nav_menu_option_xpath = "//a[@class='parent collapsed'][normalize-space()='Attributes']"
     attributes_attributes_nav_menu_option_xpath = "//ul[@id='collapse-1-4']//a[contains(text(),'Attributes')]"
     attributes_attribute_groups_nav_menu_option_xpath = "//a[normalize-space()='Attribute Groups']"
+    options_nav_menu_option_xpath = "//a[normalize-space()='Options']"
 
 
 #---------------modálne okno-----------------------------------------------------------------------------
@@ -166,6 +168,12 @@ class DashboardPage(BasePage):
                 self.attributes_attribute_groups_nav_menu_option_xpath)
         return AttributeGroupPage(self.driver)
 
+#------------------------Catalog - Options -----------------------------------------------------------------
+
+    def klik_na_polozku_navigacneho_menu_options(self):
+        self.klik_na_polozku_navigacneho_menu_catalog()
+        self.klik_na_element("options_nav_menu_option_xpath", self.options_nav_menu_option_xpath)
+        return OptionPage(self.driver)
 
 
 
