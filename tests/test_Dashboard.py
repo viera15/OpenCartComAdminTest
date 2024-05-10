@@ -118,7 +118,12 @@ class TestDashboard(BaseTest):
         ocakavany_nadpis_option = "Options"
         assert option_page.vratenie_textu_z_hlavicky_obsahovej_casti_options().__eq__(ocakavany_nadpis_option)
 
-
+    def test_kliknutie_catalog_manufacturers_navigation_link(self):
+        dashboard_page = self.login_spravne_udaje()
+        manufacturer_page = dashboard_page.klik_na_polozku_navigacneho_menu_manufacturers()
+        ocakavany_nadpis_manufacturer = "Manufacturers"
+        assert manufacturer_page.vratenie_textu_z_hlavicky_obsahovej_casti_manufacturers().__eq__(
+                ocakavany_nadpis_manufacturer)
 
 
 

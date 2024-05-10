@@ -8,6 +8,7 @@ from pages.BasePage import BasePage
 from pages.CatalogPage import CatalogPage
 from pages.FilterPage import FilterPage
 from pages.HomeStorePage import HomeStorePage
+from pages.ManufacturerPage import ManufacturerPage
 from pages.OptionPage import OptionPage
 from pages.ProductPage import ProductPage
 from pages.ProfilePage import ProfilePage
@@ -43,6 +44,7 @@ class DashboardPage(BasePage):
     attributes_attributes_nav_menu_option_xpath = "//ul[@id='collapse-1-4']//a[contains(text(),'Attributes')]"
     attributes_attribute_groups_nav_menu_option_xpath = "//a[normalize-space()='Attribute Groups']"
     options_nav_menu_option_xpath = "//a[normalize-space()='Options']"
+    manufacturers_nav_menu_option_xpath = "//a[normalize-space()='Manufacturers']"
 
 
 #---------------modálne okno-----------------------------------------------------------------------------
@@ -174,6 +176,14 @@ class DashboardPage(BasePage):
         self.klik_na_polozku_navigacneho_menu_catalog()
         self.klik_na_element("options_nav_menu_option_xpath", self.options_nav_menu_option_xpath)
         return OptionPage(self.driver)
+
+#------------------------Catalog - Manufacturers-------------------------------------------------------------
+
+    def klik_na_polozku_navigacneho_menu_manufacturers(self):
+        self.klik_na_polozku_navigacneho_menu_catalog()
+        self.klik_na_element("manufacturers_nav_menu_option_xpath", self.manufacturers_nav_menu_option_xpath)
+        return ManufacturerPage(self.driver)
+
 
 
 
