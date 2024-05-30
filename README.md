@@ -1,3 +1,5 @@
+Nefunguje mi prihlásenie. Neviem, či zmenili prístupy. Takže pokračovanie v tvorbe testov pozastavujem.
+
 # Testovanie administrátorskej stránky demo.opencart.com
 <br>
 Na základe kurzu [**Selenium Python - Beginners to Advanced (2023) - Biggest Course** ](https://www.youtube.com/playlist?list=PLsjUcU8CQXGEe8D7ZVJnANklJEHeqjBul) som si začala vytvárať vlastný projekt, kde testujem administrátorskú časť eshopu ***opencart.com*** - demo verziu. <br>
